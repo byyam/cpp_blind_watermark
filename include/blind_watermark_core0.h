@@ -10,7 +10,7 @@
 namespace re {
 class BindWatermarkCoreV0 : public IBindWatermarkCore {
 public:
-  explicit BindWatermarkCoreV0(std::array<int, 2> block_shape = {4, 4}) : m_block_shape(block_shape) {}
+  explicit BindWatermarkCoreV0(std::array<int, 2> block_shape = {8, 8}) : m_block_shape(block_shape) {}
   ~BindWatermarkCoreV0() override = default;
   void readImage(const cv::Mat &img) override
   {
@@ -27,7 +27,7 @@ public:
   {
     auto block_num = ca_block_shape[0] * ca_block_shape[1];
     if (m_wm_size > block_num) {
-      printf("水印数据太大，嵌入失败，最多可嵌入 %d kb，水印数据大小 %d kb", block_num / 1000, m_wm_size / 1000);
+      printf("水印数据太大，嵌入失败，最多可嵌入 %d kb, 水印数据大小 %d kb", block_num / 1000, m_wm_size / 1000);
       return {};
     }
 
@@ -259,7 +259,7 @@ private:
   std::vector<std::unique_ptr<DTW2Utils>> dwt2UtilsArray;
 
   std::array<int, 2> m_block_shape;
-  int d1 = 50;
+  int d1 = 20;
   std::vector<uint8_t> m_wm_bits;
   size_t m_wm_size{};
 

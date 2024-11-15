@@ -20,7 +20,7 @@ target_include_directories(my_lib
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/wavelib/header)
 
-target_link_libraries(my_lib INTERFACE wavelib opencv::opencv aklomp::base64)
+target_link_libraries(my_lib INTERFACE wavelib ${OpenCV_LIBS} aklomp::base64)
 
 add_executable(main main.cpp)
 target_link_libraries(main PRIVATE my_lib wavelib)
