@@ -28,7 +28,7 @@ void extract_watermark(const std::string& input_path, int watermark_bin_size) {
 
 int embed_watermark(const std::string& input_path, const std::string& output_path, const std::string& watermark) {
 
-  cv::Mat img = cv::imread(input_path);
+  cv::Mat img = cv::imread(input_path, cv::IMREAD_UNCHANGED); 
   auto wm_bits = BinaryUtils::utf8StrToBinArray(watermark);
   auto xx = cv::Mat(wm_bits);
   std::cout << "wm_bits size: " << wm_bits.size() << std::endl;
