@@ -259,7 +259,7 @@ private:
   std::vector<std::unique_ptr<DTW2Utils>> dwt2UtilsArray;
 
   std::array<int, 2> m_block_shape;
-  int d1 = 20;
+  int d1 = 35;
   std::vector<uint8_t> m_wm_bits;
   size_t m_wm_size{};
 

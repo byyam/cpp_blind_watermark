@@ -6,6 +6,7 @@
 #define BLINDWATERMARKTEST_BASE64CODEC_UTILS_H
 #include "libbase64.h"
 #include <string>
+#include <memory>  // unique_ptr
 namespace re {
 class Base64CodecUtils {
 public:
